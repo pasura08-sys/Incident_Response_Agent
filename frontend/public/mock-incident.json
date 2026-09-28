@@ -1,0 +1,57 @@
+{
+  "incident": {
+    "id": "INC-024",
+    "title": "Database connection timeout",
+    "service": "payment-api",
+    "environment": "production",
+    "severity": "HIGH",
+    "timestamp": "2026-09-28T14:32:00Z",
+    "description": "Payment API is experiencing intermittent database connection failures."
+  },
+  "analysis": {
+    "status": "completed",
+    "summary": "The incident appears related to database connection pool exhaustion.",
+    "confidence": 0.91
+  },
+  "memories": [
+    {
+      "incident_id": "INC-014",
+      "date": "2026-09-15",
+      "title": "Database connection timeout",
+      "similarity": 0.94,
+      "root_cause": "Connection pool exhaustion",
+      "resolution": "Restarted Service X and increased connection pool size.",
+      "outcome": "resolved",
+      "resolution_time": "18 minutes"
+    },
+    {
+      "incident_id": "INC-009",
+      "date": "2026-08-27",
+      "title": "Payment API database saturation",
+      "similarity": 0.82,
+      "root_cause": "Pool saturation during traffic spike",
+      "resolution": "Scaled payment-api and increased pool size.",
+      "outcome": "resolved",
+      "resolution_time": "31 minutes"
+    },
+    {
+      "incident_id": "INC-003",
+      "date": "2026-07-19",
+      "title": "Database connection timeout",
+      "similarity": 0.76,
+      "root_cause": "Stale connections after deploy",
+      "resolution": "Restarted affected pods.",
+      "outcome": "resolved",
+      "resolution_time": "12 minutes"
+    }
+  ],
+  "recommendation": {
+    "action": "Restart Service X",
+    "reason": "A highly similar incident was successfully resolved using this approach. Inspect connection-pool utilization while the service restarts.",
+    "confidence": 0.89
+  },
+  "memory_update": {
+    "status": "pending",
+    "message": "This incident can be retained after resolution."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "baseUrl": "http://127.0.0.1:8000",
+  "endpoints": {
+    "health": { "method": "GET", "path": "/api/health" },
+    "analyze": {
+      "method": "POST",
+      "path": "/api/incidents/analyze",
+      "request": {
+        "title": "Database connection timeout",
+        "service": "payment-api",
+        "environment": "production",
+        "severity": "HIGH",
+        "description": "Intermittent database connection failures."
+      }
+    },
+    "resolve": {
+      "method": "POST",
+      "path": "/api/incidents/resolve",
+      "request": {
+        "incident": { "id": 2, "title": "Database connection timeout", "service": "payment-api", "environment": "production", "severity": "HIGH", "description": "Intermittent database connection failures." },
+        "recommendation": { "action": "Restart Service X and increase connection pool size.", "reason": "A similar incident was previously resolved with this approach.", "confidence": 0.94 },
+        "outcome": "resolved"
+      }
+    }
+  }
+}

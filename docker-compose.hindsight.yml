@@ -1,0 +1,10 @@
+# Optional Hindsight service helper.
+# Use your team's official Hindsight deployment/configuration if you already have one.
+# This file is intentionally not the default app startup path.
+services:
+  hindsight:
+    image: ghcr.io/vectorize-io/hindsight:latest
+    ports:
+      - "8888:8888"
+    environment:
+      HINDSIGHT_API_WORKER_ID: recallops-local
